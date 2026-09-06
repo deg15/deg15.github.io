@@ -1,6 +1,6 @@
 # Publicación en GitHub Pages
 
-Cuenta: `deg15`. Repositorio público creado: [deg15/deg15.github.io](https://github.com/deg15/deg15.github.io). Remoto local `origin` configurado por SSH mediante el alias `github.com-personal`, autenticado como `deg15`. Dirección prevista: https://deg15.github.io/.
+Cuenta: `deg15`. Repositorio público: [deg15/deg15.github.io](https://github.com/deg15/deg15.github.io). Remoto local `origin` configurado por SSH mediante el alias `github.com-personal`, autenticado como `deg15`. Web publicada: https://deg15.github.io/.
 
 La web está configurada con `output: 'export'`, imágenes sin optimizador de servidor y rutas con barra final. GitHub sirve exclusivamente `out/`. No necesita Node.js, backend ni variables secretas en producción.
 
@@ -10,13 +10,15 @@ La web está configurada con `output: 'export'`, imágenes sin optimizador de se
 
 Las acciones oficiales usadas son checkout v7, setup-node v7, configure-pages v6, upload-pages-artifact v5 y deploy-pages v5; sus versiones se consultaron en los repositorios oficiales.
 
-En GitHub, **Settings → Pages → Build and deployment → Source** ya está configurado como **GitHub Actions** (`build_type: workflow`, comprobado mediante API). El primer push a `main` inicia la publicación; el sitio estará disponible cuando finalice correctamente el job de despliegue.
+En GitHub, **Settings → Pages → Build and deployment → Source** está configurado como **GitHub Actions** (`build_type: workflow`, comprobado mediante API). Cada push a `main` inicia una nueva publicación.
 
 ## Control de la publicación
 
-David ha autorizado expresamente el commit inicial, el push y la publicación en esta sesión. Esta autorización corresponde a este despliegue; no cambia las preferencias generales sobre otros repositorios. Tras subir el commit inicial, comprobar la ejecución verde en **Actions** y abrir la URL pública, la página de privacidad y una URL inexistente para verificar el 404.
+David ha autorizado expresamente el commit inicial, el push y la publicación en esta sesión. Esta autorización corresponde a este despliegue; no cambia las preferencias generales sobre otros repositorios.
 
-Estado previo al primer push, comprobado el 6 de septiembre de 2026: repositorio público vacío, rama predeterminada `main`, Pages con `build_type: workflow`, HTTPS activado y `status: null`. No se ha realizado ningún commit ni push. Localmente pasan lint, TypeScript, build y las siete pruebas de Playwright; se ha revisado la presentación en escritorio, móvil y el menú en horizontal. La ejecución en GitHub Actions y la comprobación del dominio público quedan pendientes del primer push.
+Publicación inicial del 6 de septiembre de 2026: commit `5888e2c`, subido a `main`, y [ejecución de GitHub Actions completada](https://github.com/deg15/deg15.github.io/actions/runs/34020605927). Pasan lint, TypeScript, build y las siete pruebas de Playwright en CI. La URL pública responde con HTTP 200 y HTTPS; se ha revisado visualmente en escritorio y móvil.
+
+Para comprobar el sitio publicado: `BASE_URL=https://deg15.github.io npm test`. La prueba de exportación verifica que GitHub sirve el JavaScript y CSS de `/_next/`; no exige una URL pública para el marcador `.nojekyll`.
 
 Si se publica bajo otra cuenta o con dominio propio, cambiar `SITE_URL` en el workflow y revisar `lib/site.ts`. Para una web de proyecto bajo `/nombre-repositorio/` haría falta adaptar también el prefijo de rutas y assets; la configuración actual corresponde a la web personal raíz.
 

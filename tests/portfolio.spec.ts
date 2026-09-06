@@ -217,7 +217,19 @@ test('exportación estática: SEO público, imagen social, privacidad y 404', as
   expect(await (await request.get('/sitemap.xml')).text()).toContain(
     'https://deg15.github.io/privacidad/',
   );
-  expect((await request.get('/.nojekyll')).status()).toBe(200);
+  // Comprueba los recursos que necesita la página; .nojekyll es un marcador
+  // de despliegue y GitHub Pages no tiene por qué servirlo públicamente.
+  for (const [selector, attribute, contentType] of [
+    ['script[src^="/_next/"]', 'src', /javascript/],
+    ['link[rel="stylesheet"][href^="/_next/"]', 'href', /text\/css/],
+  ] as const) {
+    const asset = await page.locator(selector).first().getAttribute(attribute);
+    expect(asset).toBeTruthy();
+    const result = await request.get(asset!);
+    expect(result.status()).toBe(200);
+    expect(result.headers()['content-type']).toMatch(contentType);
+    expect((await result.body()).length).toBeGreaterThan(0);
+  }
   await page.getByRole('link', { name: 'Privacidad', exact: true }).click();
   await expect(page).toHaveURL(/\/privacidad\/$/);
   await expect(page.locator('h1')).toContainText('Tu privacidad');
