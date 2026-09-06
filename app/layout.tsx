@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: { default: siteTitle, template: '%s' },
   description: siteDescription,
-  applicationName: 'David Egea',
+  applicationName: 'David Egea García',
   authors: [{ name: profile.name }],
   creator: profile.name,
   openGraph: {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     locale: 'es_ES',
     type: 'website',
-    siteName: 'David Egea',
+    siteName: 'David Egea García',
   },
   twitter: {
     card: 'summary_large_image',

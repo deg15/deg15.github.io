@@ -1,4 +1,4 @@
-# David Egea — web personal
+# David Egea García — web personal
 
 Portfolio en español de David Egea García. Next.js 16, React 19 y exportación estática para GitHub Pages. Contacto exclusivo por LinkedIn.
 

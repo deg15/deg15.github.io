@@ -36,7 +36,7 @@ export default function Home() {
         <section id="inicio" className="hero wrap" aria-labelledby="hero-title">
           <div className="hero-top">
             <p className="eyebrow">
-              <span className="signal" /> DAVID EGEA / INGENIERO INFORMÁTICO
+              <span className="signal" /> DAVID EGEA GARCÍA / INGENIERO INFORMÁTICO
             </p>
             <span className="hero-location mono">
               <MapPin size={13} /> CARTAGENA, ESPAÑA
@@ -57,7 +57,7 @@ export default function Home() {
                 />
               </h1>
               <p className="hero-description">
-                Soy David Egea. Conecto ingeniería, datos e inteligencia
+                Soy David Egea García. Conecto ingeniería, datos e inteligencia
                 artificial para convertir problemas complejos en{' '}
                 <strong>soluciones que tienen sentido.</strong>
               </p>
@@ -94,7 +94,7 @@ export default function Home() {
                   </small>
                 </span>
                 <span className="portrait-signature" aria-hidden="true">
-                  de.
+                  deg.
                 </span>
               </figcaption>
             </figure>
@@ -478,7 +478,7 @@ export default function Home() {
         <div className="footer-top">
           <a className="brand" href="#inicio">
             <span className="wordmark" aria-hidden="true">
-              de<span>.</span>
+              deg<span>.</span>
             </span>
             <span className="brand-name">David Egea García</span>
           </a>

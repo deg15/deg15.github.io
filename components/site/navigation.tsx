@@ -37,11 +37,11 @@ export function Navigation() {
   return (
     <header className="header-shell">
       <div className="site-header wrap">
-        <a className="brand" href="#inicio" aria-label="David Egea, inicio">
+        <a className="brand" href="#inicio" aria-label="David Egea García, inicio">
           <span className="wordmark" aria-hidden="true">
-            de<span>.</span>
+            deg<span>.</span>
           </span>
-          <span className="brand-name">David Egea</span>
+          <span className="brand-name">David Egea García</span>
         </a>
         <nav className="desktop-nav" aria-label="Navegación principal">
           {links.map((link) => (
@@ -89,7 +89,7 @@ export function Navigation() {
             >
               <div className="dialog-top">
                 <DialogTitle>
-                  David Egea<span>.</span>
+                  David Egea García<span>.</span>
                 </DialogTitle>
                 <DialogClose
                   render={
@@ -104,7 +104,7 @@ export function Navigation() {
                 </DialogClose>
               </div>
               <DialogDescription className="sr-only">
-                Secciones del portfolio personal de David Egea.
+                Secciones del portfolio personal de David Egea García.
               </DialogDescription>
               <nav aria-label="Navegación móvil">
                 {[

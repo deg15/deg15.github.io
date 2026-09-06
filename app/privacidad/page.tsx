@@ -3,19 +3,19 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { profile } from '@/lib/profile';
 export const metadata: Metadata = {
-  title: 'Privacidad · David Egea',
+  title: 'Privacidad · David Egea García',
   description:
-    'Información sobre el uso de datos en el portfolio personal de David Egea.',
+    'Información sobre el uso de datos en el portfolio personal de David Egea García.',
   alternates: { canonical: '/privacidad/' },
   openGraph: {
-    title: 'Privacidad · David Egea',
+    title: 'Privacidad · David Egea García',
     description:
-      'Información sobre el uso de datos en el portfolio personal de David Egea.',
+      'Información sobre el uso de datos en el portfolio personal de David Egea García.',
   },
   twitter: {
-    title: 'Privacidad · David Egea',
+    title: 'Privacidad · David Egea García',
     description:
-      'Información sobre el uso de datos en el portfolio personal de David Egea.',
+      'Información sobre el uso de datos en el portfolio personal de David Egea García.',
   },
 };
 export default function Privacy() {
@@ -25,7 +25,7 @@ export default function Privacy() {
         <ArrowLeft size={16} />
         Volver al portfolio
       </Link>
-      <p className="eyebrow">DAVID EGEA / INFORMACIÓN SOBRE DATOS</p>
+      <p className="eyebrow">DAVID EGEA GARCÍA / INFORMACIÓN SOBRE DATOS</p>
       <h1>
         Tu privacidad,
         <br />

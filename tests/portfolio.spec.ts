@@ -184,7 +184,7 @@ test('exportación estática: SEO público, imagen social, privacidad y 404', as
   request,
 }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle('David Egea — Software, datos & IA');
+  await expect(page).toHaveTitle('David Egea García — Software, datos & IA');
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',

@@ -26,7 +26,7 @@ const tree = element(
       borderBottom: '1px solid #d8d9ce',
       paddingBottom: 20,
     },
-    element('span', { fontSize: 27, fontWeight: 700 }, 'David Egea.'),
+    element('span', { fontSize: 27, fontWeight: 700 }, 'David Egea García.'),
     element(
       'span',
       { fontSize: 13, letterSpacing: 2 },
