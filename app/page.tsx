@@ -86,14 +86,6 @@ export default function Home() {
                   sizes="(max-width: 700px) 90vw, 430px"
                 />
               </div>
-              <span className="portrait-note">
-                <Asterisk size={24} />
-                <span>
-                  Curiosidad constante.
-                  <br />
-                  Los pies en la tierra.
-                </span>
-              </span>
               <figcaption>
                 <span>
                   David Egea García

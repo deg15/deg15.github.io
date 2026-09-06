@@ -383,23 +383,6 @@ svg {
 .portrait-block:hover img {
   transform: scale(1.02);
 }
-.portrait-note {
-  position: absolute;
-  left: -35px;
-  bottom: 120px;
-  padding: 18px 22px;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  background: var(--coral);
-  border: 1px solid #dda086;
-  border-radius: 9px;
-  transform: rotate(-5deg);
-  box-shadow: 0 6px 20px #24292318;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.7;
-}
 .portrait-block figcaption {
   display: flex;
   justify-content: space-between;
@@ -1920,12 +1903,6 @@ svg {
     gap: 35px;
     grid-template-columns: 1.25fr 1fr;
   }
-  .portrait-note {
-    left: -18px;
-    padding: 12px 15px;
-    font-size: 10px;
-    gap: 9px;
-  }
   .portrait-block figcaption small {
     font-size: 9px;
   }
@@ -2207,15 +2184,6 @@ svg {
   }
   .portrait-frame > img {
     object-position: center 37%;
-  }
-  .portrait-note {
-    left: -22px;
-    bottom: 85px;
-    font-size: 11px;
-    padding: 13px 18px;
-  }
-  .portrait-note > svg {
-    width: 20px;
   }
   .portrait-block figcaption {
     font-size: 12px;
@@ -2869,9 +2837,6 @@ svg {
     font-size: 60px;
   }
   .hero-asterisk {
-    display: none;
-  }
-  .portrait-note {
     display: none;
   }
   .portrait-block {
