@@ -1,0 +1,22 @@
+# Logos y procedencia
+
+Recursos locales obtenidos de las webs de las organizaciones el 5 de septiembre de 2026. Se usan para identificar la trayectoria profesional, la formación y los emisores de certificaciones. Las marcas siguen perteneciendo a sus titulares; la descarga no equivale a una licencia de marca ni acredita patrocinio.
+
+| Organización | Archivo en `public/logos/` | Fuente oficial y recurso | Observaciones |
+| --- | --- | --- | --- |
+| Hawkers | `hawkers.svg` | [Web](https://www.hawkersco.com/es) · [SVG](https://www.hawkersco.com/on/demandware.static/-/Library-Sites-Hawkers_Co_SharedLibrary/default/dw299dfa3e/images/logo-hawkers-black.svg) | Logotipo negro, fondo transparente. |
+| Cívica Software | `civica.png` | [Web](https://civica-soft.com/) · [PNG](https://civica-soft.com/wp-content/themes/civica/assets/images/logo_civica.png) | Identidad actual de Cívica, con lema. No corresponde necesariamente a su identidad durante el empleo. |
+| Capgemini | `capgemini.svg` | [Web](https://www.capgemini.com/) · [SVG](https://www.capgemini.com/wp-content/themes/capgemini2025/assets/images/capgeminiBlue.svg) | Variante azul, fondo transparente. |
+| Bitec | `bitec.png` | [Web](https://bitec.es/) · [PNG](https://bitec.es/wp-content/uploads/2025/09/Bitec_negativo_claim-crop.png) | Marca actual con lema «simplifica.». Variante blanca: necesita un fondo oscuro. |
+| TICARUM | `ticarum.png` | [Web](https://www.ticarum.es/) · [PNG](https://www.ticarum.es/wp-content/uploads/2017/12/TICARUM_larga-derecha_naranja_web_400px.png) | Logotipo naranja con denominación legal, 400 × 64 px. |
+| SABIC Innovative Plastics | `sabic.svg` | [Marca oficial](https://www.sabic.com/en/about/our-brand) · [SVG](https://www.sabic.com/en/Images/SABIC-Logo_tcm1010-14323.svg) | Marca corporativa SABIC; no es un logotipo específico de la antigua división Innovative Plastics. Mantiene juntos los nombres en árabe e inglés. |
+| VilVite | `vilvite.svg` | [Web](https://www.vilvite.no/) · [SVG de su CDN](https://st-vilvite2022.nf.cdn.netflexapp.com/media/o/1647004569/logo.svg) | Logotipo del pie de la web oficial, en negro y blanco, fondo transparente. |
+| Universidad de Murcia | `universidad-murcia.png` | [Ficha alojada en UMU](https://webs.um.es/mab/miwiki/lib/exe/detail.php?id=apurf&media=logo-universidad-de-murcia.png) · [PNG](https://webs.um.es/mab/miwiki/lib/exe/fetch.php?media=logo-universidad-de-murcia.png) | Marca histórica publicada en 2019, 220 × 58 px, fondo rojo y gris opaco. La descarga de los SVG actuales del servidor principal no respondió correctamente. |
+| Wrocław University of Science and Technology | `wroclaw.svg` | [Cabecera oficial](https://pwr.edu.pl/en/) · [CSS oficial](https://pwr.edu.pl/files/cache/1/en/css/style.css?1787902358) | SVG extraído de la cabecera. Se incorporaron los colores de su CSS y se ajustaron las dimensiones al `viewBox` original; trazados intactos. |
+| CIFP Carlos III, Cartagena | `cifp-carlos-iii.svg` | [Web](https://cifpcarlos3.es/es) · [SVG](https://cifpcarlos3.es/cdn/web/assets/images/CIFP_CARLOS_III_V.svg) | Versión vertical oficial, con nombre del centro. |
+| DataCamp | `datacamp.svg` | [Waffles: Brand](https://waffles.datacamp.com/components/brand/) · [Componente publicado](https://waffles.datacamp.com/_next/static/chunks/pages/components/brand-5688a57ae412dfe8.js) | Exportación estática de `DataCampLogo`: mismos dos trazados y colores oficiales (`#05192D`, `#03EF62`) del tema claro de Waffles. |
+| MicroStrategy | `microstrategy.svg` | [Propiedad intelectual de Strategy](https://www.strategy.com/legal/intellectual-property) · [SVG histórico](https://images.contentstack.io/v3/assets/bltb564490bc5201f31/blt4c8c8e999d6fed2c/652d5b06926e875231df5c10/m-icon-filled-black.svg) | Isotipo histórico de tres barras, publicado todavía como MicroStrategy «M» logomark. Evita asignar la identidad Strategy de 2025 a certificados anteriores. |
+| Oracle | `oracle.svg` | [Página oficial de logos](https://www.oracle.com/legal/logos/) | SVG extraído sin modificar los trazados del logotipo de la cabecera; color oficial `#C74634`. La página enlazada detalla sus condiciones de uso. |
+| Zogic Studio | `zogic.svg` | [Web](https://zogicstudio.com/) · [SVG](https://zogicstudio.com/icon.svg) | Isotipo `zg` oficial sobre fondo negro. |
+
+Los 14 recursos se decodificaron con Sharp y se inspeccionaron visualmente. Los SVG contienen trazados locales; no incluyen JavaScript ni recursos externos. No se han recreado marcas con tipografía, iconos de sustitución o generación de imágenes.
