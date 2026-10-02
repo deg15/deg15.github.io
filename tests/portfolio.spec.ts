@@ -125,10 +125,10 @@ test('los 14 logos se sirven localmente y las imágenes visibles se cargan', asy
   }
 });
 
-test('móvil: anclas, teclado, foco del menú y adaptación de 320 a 1440 px', async ({
+test('móvil: anclas, teclado, foco del menú y adaptación de 320 a 1920 px', async ({
   page,
 }) => {
-  for (const width of [320, 375, 390, 768, 1024, 1440]) {
+  for (const width of [320, 360, 390, 768, 900, 901, 1024, 1440, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
     await noOverflow(page);
@@ -157,6 +157,38 @@ test('móvil: anclas, teclado, foco del menú y adaptación de 320 a 1440 px', a
   await expect(page).toHaveURL(/#formacion$/);
   await expect(page.getByRole('dialog')).not.toBeVisible();
   await expect(page.locator('#education-title')).toBeInViewport();
+});
+
+test('el salto al contenido mueve el foco y Zogic es accesible en ambos menús', async ({
+  page,
+}) => {
+  for (const width of [390, 901, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    await page.keyboard.press('Tab');
+    await expect(
+      page.getByRole('link', { name: 'Saltar al contenido' }),
+    ).toBeFocused();
+    await page.keyboard.press('Enter');
+    const main = page.locator('#contenido');
+    await expect(main).toBeFocused();
+    await expect(main).toHaveCSS('outline-style', 'solid');
+    await page.keyboard.press('Tab');
+    await expect(page.locator('.hero-actions .button-primary')).toBeFocused();
+
+    const mobile = width <= 900;
+    if (mobile) await page.getByRole('button', { name: 'Abrir menú' }).click();
+    const navigation = page.getByRole('navigation', {
+      name: mobile ? 'Navegación móvil' : 'Navegación principal',
+    });
+    await navigation
+      .getByRole('link', { name: 'Zogic Studio', exact: true })
+      .click();
+    await expect(page).toHaveURL(/#zogic$/);
+    await expect(page.locator('#studio-title')).toBeInViewport();
+    if (mobile) await expect(page.getByRole('dialog')).not.toBeVisible();
+    await noOverflow(page);
+  }
 });
 
 test('accesibilidad WCAG en escritorio, historial expandido y menú móvil', async ({

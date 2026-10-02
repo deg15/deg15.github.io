@@ -32,7 +32,7 @@ export default function Home() {
         Saltar al contenido
       </a>
       <Navigation />
-      <main id="contenido">
+      <main id="contenido" tabIndex={-1}>
         <section id="inicio" className="hero wrap" aria-labelledby="hero-title">
           <div className="hero-top">
             <p className="eyebrow">
@@ -80,8 +80,8 @@ export default function Home() {
                 <Image
                   src="/images/david-egea.webp"
                   alt="Retrato de David Egea García"
-                  width={810}
-                  height={1085}
+                  width={1080}
+                  height={1080}
                   preload
                   sizes="(max-width: 700px) 90vw, 430px"
                 />
@@ -119,7 +119,7 @@ export default function Home() {
                 <BrandLogo brand="hawkers" />
               </div>
               <span>
-                Data Engineer
+                Data Engineer{' '}
                 <br />& Analyst
               </span>
               <ArrowUpRight size={20} />
@@ -135,7 +135,7 @@ export default function Home() {
           </div>
           <div className="career-strip">
             <span className="mono">
-              PARTE DE
+              PARTE DE{' '}
               <br />
               MI RECORRIDO
             </span>

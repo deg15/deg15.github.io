@@ -17,6 +17,7 @@ const links = [
   { href: '#experiencia', label: 'Experiencia' },
   { href: '#sobre-mi', label: 'Sobre mí' },
   { href: '#formacion', label: 'Formación' },
+  { href: '#zogic', label: 'Zogic Studio' },
 ];
 export function Navigation() {
   const [open, setOpen] = useState(false);
@@ -109,7 +110,6 @@ export function Navigation() {
               <nav aria-label="Navegación móvil">
                 {[
                   ...links,
-                  { href: '#zogic', label: 'Proyecto propio' },
                   { href: profile.linkedin, label: 'LinkedIn' },
                 ].map((link, i) => (
                   <a

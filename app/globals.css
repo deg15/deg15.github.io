@@ -79,7 +79,7 @@ svg {
 .mono,
 .eyebrow {
   font-family: var(--font-ibm-mono), monospace;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.6px;
   line-height: 1.7;
 }
@@ -104,7 +104,7 @@ svg {
   height: 30px;
   border: 1px solid currentColor;
   border-radius: 50%;
-  font-size: 10px;
+  font-size: 12px;
   margin-right: 5px;
 }
 .header-shell {
@@ -244,6 +244,10 @@ svg {
 }
 .skip-link:focus {
   transform: translateY(0);
+}
+#contenido:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .hero {
@@ -393,7 +397,7 @@ svg {
 }
 .portrait-block figcaption small {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted-foreground);
   font-weight: 400;
   margin-top: 5px;
@@ -458,7 +462,7 @@ svg {
   color: white;
 }
 .bento-current .eyebrow {
-  font-size: 9px;
+  font-size: 12px;
   color: #cdd6bf;
   margin: 0 0 15px;
 }
@@ -485,7 +489,7 @@ svg {
   background: var(--green);
 }
 .bento-studio .eyebrow {
-  font-size: 9px;
+  font-size: 12px;
   margin: 0;
 }
 .bento-studio-title {
@@ -506,7 +510,7 @@ svg {
   overflow: hidden;
 }
 .bento-studio > span:last-child {
-  font-size: 11px;
+  font-size: 12px;
 }
 .brand-logo {
   display: inline-flex;
@@ -536,7 +540,7 @@ svg {
 }
 .career-strip > .mono {
   color: var(--muted-foreground);
-  font-size: 9px;
+  font-size: 12px;
   min-width: 118px;
 }
 .career-brands {
@@ -638,7 +642,7 @@ svg {
   z-index: 1;
 }
 .service-card-top .mono {
-  font-size: 10px;
+  font-size: 12px;
 }
 .service-card-top > svg {
   opacity: 0.6;
@@ -664,7 +668,7 @@ svg {
 }
 .service-tools span {
   font-family: var(--font-ibm-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   padding: 5px 9px;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -730,7 +734,7 @@ svg {
 }
 .service-producto .service-tools span,
 .service-ia .service-tools span {
-  font-size: 9px;
+  font-size: 12px;
   padding: 4px 7px;
 }
 .service-visual {
@@ -1091,7 +1095,7 @@ svg {
 }
 .tags > span {
   font-family: var(--font-ibm-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   padding: 6px 9px;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -1106,7 +1110,7 @@ svg {
 }
 .hawkers-bottom > .mono {
   color: #556344;
-  font-size: 10px;
+  font-size: 12px;
 }
 .hawkers-bottom a {
   display: flex;
@@ -1135,7 +1139,7 @@ svg {
   width: 125px;
   flex-shrink: 0;
   color: var(--muted-foreground);
-  font-size: 10px;
+  font-size: 12px;
 }
 .experience-logo {
   width: 116px;
@@ -1212,7 +1216,7 @@ svg {
 }
 .experience-note > .mono {
   color: var(--muted-foreground);
-  font-size: 10px;
+  font-size: 12px;
 }
 .experience-note a {
   display: flex;
@@ -1331,7 +1335,7 @@ svg {
 }
 .academic-item .mono {
   color: var(--muted-foreground);
-  font-size: 10px;
+  font-size: 12px;
 }
 .academic-item p {
   font-size: 12px;
@@ -1357,7 +1361,7 @@ svg {
   gap: 22px;
 }
 .certifications .eyebrow {
-  font-size: 9px;
+  font-size: 12px;
   margin: 0;
 }
 .certifications h3 {
@@ -1402,14 +1406,14 @@ svg {
   margin: 0 0 5px;
 }
 .certification-feature p {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.6;
   margin: 0;
   color: #675e4e;
 }
 .certification-feature > .mono {
   margin-left: auto;
-  font-size: 10px;
+  font-size: 12px;
 }
 .certifications .certificate-toggle {
   width: 100%;
@@ -1428,7 +1432,7 @@ svg {
   color: var(--accent);
 }
 .certification-note {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.8;
   color: #675e4e;
   margin: 10px 0 15px;
@@ -1460,18 +1464,18 @@ svg {
   font-weight: 600;
 }
 .certificate-list p {
-  font-size: 10px;
+  font-size: 12px;
   color: #675e4e;
   margin: 0;
 }
 .certificate-list > li > .mono {
-  font-size: 9px;
+  font-size: 12px;
   text-align: right;
   padding-top: 4px;
 }
 .certifications .text-link {
   border-color: #ccbba2;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .studio-section {
@@ -1488,7 +1492,7 @@ svg {
   align-items: center;
 }
 .studio-intro .eyebrow {
-  font-size: 10px;
+  font-size: 12px;
 }
 .studio-panel h2 {
   font-size: 39px;
@@ -1521,7 +1525,7 @@ svg {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  font-size: 8px;
+  font-size: 12px;
   color: #cad7b6;
 }
 .studio-brand-lockup {
@@ -1576,7 +1580,7 @@ svg {
 }
 .contact-top .eyebrow,
 .contact-top > .mono {
-  font-size: 10px;
+  font-size: 12px;
 }
 .contact-grid {
   display: grid;
@@ -1635,7 +1639,7 @@ svg {
   border-top: 1px solid var(--border);
   margin-top: 24px;
   padding-top: 13px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-foreground);
 }
 .footer-bottom > div {
@@ -1728,7 +1732,7 @@ svg {
     gap: 16px;
   }
   .hero-actions .text-link {
-    font-size: 11px;
+    font-size: 12px;
   }
   .hero-bento {
     grid-template-columns: 1fr 1.3fr 1.15fr;
@@ -1744,7 +1748,7 @@ svg {
     font-size: 52px;
   }
   .bento-ten > span:nth-child(2) {
-    font-size: 10px;
+    font-size: 12px;
   }
   .bento-ten > svg {
     display: none;
@@ -1753,7 +1757,7 @@ svg {
     gap: 16px;
   }
   .bento-current > span {
-    font-size: 11px;
+    font-size: 12px;
   }
   .bento-current > svg {
     display: none;
@@ -1766,7 +1770,7 @@ svg {
     gap: 8px;
   }
   .bento-studio > span:last-child {
-    font-size: 9px;
+    font-size: 12px;
   }
   .career-strip {
     gap: 24px;
@@ -1904,10 +1908,10 @@ svg {
     grid-template-columns: 1.25fr 1fr;
   }
   .portrait-block figcaption small {
-    font-size: 9px;
+    font-size: 12px;
   }
   .portrait-block figcaption {
-    font-size: 11px;
+    font-size: 12px;
   }
   .hero-bento {
     grid-template-columns: 1fr 1fr;
@@ -1937,7 +1941,7 @@ svg {
   }
   .career-strip > .mono {
     min-width: 90px;
-    font-size: 8px;
+    font-size: 12px;
   }
   .career-brands {
     gap: 20px;
@@ -2026,7 +2030,7 @@ svg {
   }
   .experience-date {
     width: 86px;
-    font-size: 9px;
+    font-size: 12px;
   }
   .experience-list .experience-trigger {
     gap: 18px;
@@ -2063,7 +2067,7 @@ svg {
     font-size: 18px;
   }
   .academic-item p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .academic-item .school-name {
     font-size: 12px;
@@ -2113,7 +2117,7 @@ svg {
     font-size: 13px;
   }
   .contact-top > .mono {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 @media (max-width: 700px) {
@@ -2136,7 +2140,7 @@ svg {
     padding-top: 20px;
   }
   .hero-top .eyebrow {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.3px;
   }
   .hero-location {
@@ -2189,7 +2193,7 @@ svg {
     font-size: 12px;
   }
   .portrait-block figcaption small {
-    font-size: 10px;
+    font-size: 12px;
     max-width: 235px;
   }
   .portrait-signature {
@@ -2212,7 +2216,7 @@ svg {
     font-size: 53px;
   }
   .bento-ten > span:nth-child(2) {
-    font-size: 11px;
+    font-size: 12px;
   }
   .bento-current {
     flex-direction: column;
@@ -2221,7 +2225,7 @@ svg {
     justify-content: start;
   }
   .bento-current .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     gap: 6px;
     margin-bottom: 12px;
   }
@@ -2230,7 +2234,7 @@ svg {
     height: 25px;
   }
   .bento-current > span {
-    font-size: 11px;
+    font-size: 12px;
   }
   .bento-current > span > br {
     display: none;
@@ -2244,7 +2248,7 @@ svg {
   }
   .bento-studio > .eyebrow {
     grid-column: 1;
-    font-size: 7px;
+    font-size: 12px;
   }
   .bento-studio-title {
     grid-column: 2;
@@ -2260,7 +2264,7 @@ svg {
     display: none;
   }
   .bento-studio > span:last-child {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.6;
     max-width: 155px;
   }
@@ -2269,7 +2273,7 @@ svg {
     padding: 25px 0;
   }
   .career-strip > .mono {
-    font-size: 8px;
+    font-size: 12px;
   }
   .career-strip > .mono br {
     display: none;
@@ -2309,12 +2313,12 @@ svg {
     margin-top: 20px;
   }
   .eyebrow {
-    font-size: 9px;
+    font-size: 12px;
   }
   .section-number {
     width: 28px;
     height: 28px;
-    font-size: 9px;
+    font-size: 12px;
   }
   .services-grid {
     grid-template-columns: 1fr;
@@ -2366,7 +2370,7 @@ svg {
     font-size: 14px;
   }
   .service-card-top .mono {
-    font-size: 9px;
+    font-size: 12px;
   }
   .product-visual,
   .ai-visual {
@@ -2380,7 +2384,7 @@ svg {
   .service-tools span,
   .service-producto .service-tools span,
   .service-ia .service-tools span {
-    font-size: 10px;
+    font-size: 12px;
     padding: 5px 9px;
   }
   .capabilities-bottom {
@@ -2395,10 +2399,10 @@ svg {
     padding: 18px 22px;
   }
   .hawkers-feature-top .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
   }
   .hawkers-feature-top > .mono {
-    font-size: 8px;
+    font-size: 12px;
     text-align: right;
   }
   .hawkers-feature-grid {
@@ -2426,17 +2430,17 @@ svg {
     font-size: 13px;
   }
   .tags > span {
-    font-size: 9px;
+    font-size: 12px;
   }
   .hawkers-bottom {
     display: block;
     padding: 17px 22px;
   }
   .hawkers-bottom > .mono {
-    font-size: 9px;
+    font-size: 12px;
   }
   .hawkers-bottom a {
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 6px;
   }
   .experience-list .experience-trigger {
@@ -2449,7 +2453,7 @@ svg {
     grid-column: 2;
     grid-row: 1;
     width: auto;
-    font-size: 9px;
+    font-size: 12px;
   }
   .experience-logo {
     grid-column: 1;
@@ -2465,7 +2469,7 @@ svg {
     letter-spacing: -0.5px;
   }
   .experience-company > span {
-    font-size: 11px;
+    font-size: 12px;
   }
   .experience-trigger > svg {
     grid-column: 3;
@@ -2484,10 +2488,10 @@ svg {
     display: block;
   }
   .experience-note > .mono {
-    font-size: 9px;
+    font-size: 12px;
   }
   .experience-note a {
-    font-size: 11px;
+    font-size: 12px;
   }
   .about-grid {
     grid-template-columns: 1fr;
@@ -2542,7 +2546,7 @@ svg {
     font-size: 12px;
   }
   .academic-item .mono {
-    font-size: 9px;
+    font-size: 12px;
   }
   .certifications {
     padding: 26px;
@@ -2564,10 +2568,10 @@ svg {
     width: 34px;
   }
   .certificate-list > li > .mono {
-    font-size: 8px;
+    font-size: 12px;
   }
   .certificate-list h4 {
-    font-size: 11px;
+    font-size: 12px;
   }
   .studio-section {
     padding-bottom: 65px;
@@ -2595,7 +2599,7 @@ svg {
     font-size: 54px;
   }
   .studio-mark-top {
-    font-size: 7px;
+    font-size: 12px;
   }
   .contact-section {
     padding: 27px 0 48px;
@@ -2607,7 +2611,7 @@ svg {
     display: none;
   }
   .contact-top .eyebrow {
-    font-size: 9px;
+    font-size: 12px;
   }
   .contact-grid {
     grid-template-columns: 1fr;
@@ -2625,10 +2629,10 @@ svg {
     font-size: 13px;
   }
   .footer-top .brand-name {
-    font-size: 11px;
+    font-size: 12px;
   }
   .back-to-top {
-    font-size: 10px;
+    font-size: 12px;
     gap: 7px;
   }
   .footer-bottom {
@@ -2645,7 +2649,7 @@ svg {
   }
   .footer-bottom,
   .footer-bottom a {
-    font-size: 10px;
+    font-size: 12px;
   }
   .legal-page h1 {
     font-size: 47px;
@@ -2658,20 +2662,26 @@ svg {
   }
 }
 @media (max-width: 370px) {
+  .site-header {
+    gap: 12px;
+  }
+  .brand {
+    gap: 8px;
+  }
   .wrap {
     width: calc(100% - 32px);
   }
   .brand-name {
-    font-size: 11px;
+    font-size: 12px;
   }
   .mobile-navigation {
     gap: 10px;
   }
   .mobile-contact {
-    font-size: 11px;
+    font-size: 12px;
   }
   .hero-top .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
   }
   .hero h1 {
     font-size: clamp(68px, 21vw, 77px);
@@ -2690,7 +2700,7 @@ svg {
     gap: 9px;
   }
   .hero-actions .button-primary {
-    font-size: 11px;
+    font-size: 12px;
     padding-inline: 16px;
   }
   .hero-description {
@@ -2703,14 +2713,14 @@ svg {
     width: 102px;
   }
   .bento-current .eyebrow {
-    font-size: 6px;
+    font-size: 12px;
   }
   .bento-studio-title {
     font-size: 16px;
     gap: 6px;
   }
   .bento-studio > span:last-child {
-    font-size: 9px;
+    font-size: 12px;
   }
   .hero-bento > .bento-studio {
     padding: 16px;
@@ -2738,7 +2748,7 @@ svg {
     font-size: 7px;
   }
   .service-card-top .mono {
-    font-size: 8px;
+    font-size: 12px;
   }
   .service-datos h3 {
     font-size: 32px;
@@ -2755,7 +2765,7 @@ svg {
     font-size: 19px;
   }
   .experience-company > span {
-    font-size: 10px;
+    font-size: 12px;
   }
   .certifications {
     padding: 20px;
