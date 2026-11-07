@@ -179,15 +179,15 @@ const es = {
       period: 'DIC. 2017 — ACTUALIDAD',
       role: 'IA & Data Engineer',
       location: 'ELCHE, ESPAÑA',
-      art: ['Python', 'Claude API', 'Playwright', 'Snowflake'],
+      art: ['Python', 'LLMs', 'Playwright', 'Snowflake'],
       lead: ['De los datos', 'a la IA aplicada.'],
       paragraphs: [
         'Desde 2017 formo parte del equipo de Hawkers. Empecé en ingeniería de datos y business intelligence, y hoy mi foco es la IA aplicada: sistemas que automatizan trabajo real para distintos departamentos.',
-        'IA aplicada a la web: monitorización diaria del rendimiento, validación automática de las promociones antes de publicarlas y seguimiento de cómo aparece la marca en los asistentes de IA. Y herramientas específicas para distintos departamentos.',
+        'IA aplicada a la web: monitorización diaria del rendimiento, validación automática de las promociones antes de publicarlas y seguimiento de cómo aparece la marca en los asistentes de IA. Más allá de la web, desarrollo herramientas a medida para otros departamentos.',
         'Un principio guía ese trabajo: la IA extrae y propone; el código determinista decide.',
       ],
       tags: [
-        'IA aplicada',
+        'Applied AI',
         'QA automation',
         'Data Engineering',
         'Business Intelligence',
@@ -538,11 +538,11 @@ const en: Content = {
       period: 'DEC 2017 — PRESENT',
       role: 'AI & Data Engineer',
       location: 'ELCHE, SPAIN',
-      art: ['Python', 'Claude API', 'Playwright', 'Snowflake'],
+      art: ['Python', 'LLMs', 'Playwright', 'Snowflake'],
       lead: ['From data', 'to applied AI.'],
       paragraphs: [
         'I have been part of the Hawkers team since 2017. I started in data engineering and business intelligence; today my focus is applied AI: systems that automate real work for different departments.',
-        'Applied AI for the website: daily performance monitoring, automated validation of promotions before they go live and tracking how the brand appears in AI assistants. And purpose-built tools for different departments.',
+        'Applied AI for the website: daily performance monitoring, automated validation of promotions before they go live and tracking how the brand appears in AI assistants. Beyond the website, I build tailored tools for other departments.',
         'One principle guides that work: AI extracts and suggests; deterministic code decides.',
       ],
       tags: [
