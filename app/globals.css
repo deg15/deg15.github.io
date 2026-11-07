@@ -179,6 +179,22 @@ svg {
 .mobile-navigation {
   display: none;
 }
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-family: var(--font-ibm-mono), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  transition: color 180ms;
+}
+.language-switch:hover {
+  color: var(--accent);
+}
 .mobile-contact {
   display: inline-flex;
   align-items: center;
@@ -402,6 +418,16 @@ svg {
   font-weight: 400;
   margin-top: 5px;
   line-height: 1.5;
+}
+.portrait-block figcaption small > span {
+  white-space: nowrap;
+}
+.portrait-block figcaption small a {
+  color: var(--foreground);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 .portrait-signature {
   font-family: var(--font-serif), serif;
@@ -630,9 +656,6 @@ svg {
   position: relative;
   transition: border-color 250ms;
 }
-.service-card:hover {
-  border-color: #a3ac94;
-}
 .service-card-top {
   display: flex;
   justify-content: space-between;
@@ -659,6 +682,33 @@ svg {
   font-size: 13px;
   line-height: 1.9;
   margin: 0;
+}
+.service-copy > .service-example {
+  margin-top: 14px;
+  color: inherit;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.service-example > span {
+  font-weight: 650;
+}
+.service-copy > .service-outcome {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+.service-datos .service-copy > .service-outcome {
+  font-size: 12px;
+  max-width: none;
+  border-color: #4a5245;
+  color: #d3dec6;
+}
+.service-datos .service-copy > .service-example {
+  font-size: 14px;
+  color: #f1f4ea;
 }
 .service-tools {
   display: flex;
@@ -878,6 +928,10 @@ svg {
   font-style: normal;
   margin-left: 6px;
   color: #667057;
+}
+.window-top > i b {
+  font-weight: 600;
+  color: #3f7a3a;
 }
 .window-body {
   display: flex;
@@ -1122,15 +1176,50 @@ svg {
 .experience-list {
   margin-top: 20px;
 }
-.experience-list > [data-slot='accordion-item'] {
-  border-color: #d1d7c7;
+.experience-item:not(:last-child) {
+  border-bottom: 1px solid #d1d7c7;
 }
 .experience-list .experience-trigger {
+  display: flex;
   padding: 26px 10px 26px 0;
   gap: 24px;
   align-items: center;
   border-radius: 0;
-  text-decoration: none;
+  cursor: pointer;
+  list-style: none;
+}
+.experience-trigger::-webkit-details-marker,
+.certificate-toggle::-webkit-details-marker {
+  display: none;
+}
+.experience-trigger:focus-visible,
+.certificate-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.experience-chevron {
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+  transition: transform 200ms;
+}
+.experience-item[open] .experience-chevron,
+.certificate-details[open] .certificate-toggle > svg {
+  transform: rotate(180deg);
+}
+:root {
+  interpolate-size: allow-keywords;
+}
+.experience-item::details-content,
+.certificate-details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 260ms ease,
+    content-visibility 260ms allow-discrete;
+}
+.experience-item[open]::details-content,
+.certificate-details[open]::details-content {
+  block-size: auto;
 }
 .experience-trigger:hover .experience-company {
   color: var(--accent);
@@ -1416,6 +1505,10 @@ svg {
   font-size: 12px;
 }
 .certifications .certificate-toggle {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  align-items: center;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1430,6 +1523,10 @@ svg {
 .certifications .certificate-toggle:hover {
   background: transparent;
   color: var(--accent);
+}
+.certificate-details[open] .when-closed,
+.certificate-details:not([open]) .when-open {
+  display: none;
 }
 .certification-note {
   font-size: 12px;
@@ -1565,6 +1662,83 @@ svg {
 .studio-mark-bottom > svg {
   color: #cad7b6;
 }
+.studio-projects {
+  grid-column: 1 / -1;
+  border-top: 1px solid #cfd5c3;
+  padding-top: 28px;
+}
+.studio-projects-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.studio-projects-top h3 {
+  margin: 0;
+}
+.studio-projects ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.studio-projects li a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #d3d9c8;
+  border-radius: 14px;
+  background: #f1f3ec;
+  transition:
+    border-color 200ms,
+    transform 200ms;
+}
+.studio-projects li a:hover {
+  border-color: #9aa48c;
+  transform: translateY(-2px);
+}
+.studio-projects li a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.studio-projects li .mono {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.studio-projects li strong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.studio-projects li strong > svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+.studio-projects li span:last-child {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #51584a;
+}
+@media (max-width: 1100px) {
+  .studio-projects ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .studio-projects ul {
+    grid-template-columns: 1fr;
+  }
+}
 .contact-section {
   background: var(--coral);
   border-block: 1px solid #dc9f82;
@@ -1631,6 +1805,28 @@ svg {
   min-height: 44px;
   font-size: 12px;
 }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin-top: 18px;
+}
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 180ms;
+}
+.footer-nav a:hover {
+  color: var(--accent);
+}
+.menu-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1691,6 +1887,13 @@ svg {
 }
 .legal-page > .text-link:last-of-type {
   margin-top: 20px;
+}
+.not-found-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 26px;
 }
 @keyframes reveal {
   from {
@@ -2471,7 +2674,7 @@ svg {
   .experience-company > span {
     font-size: 12px;
   }
-  .experience-trigger > svg {
+  .experience-trigger > .experience-chevron {
     grid-column: 3;
     grid-row: 1 / 3;
   }
@@ -2822,6 +3025,16 @@ svg {
   }
 }
 @media print {
+  .experience-item::details-content,
+  .certificate-details::details-content {
+    content-visibility: visible;
+    block-size: auto;
+  }
+  .experience-chevron,
+  .certificate-toggle,
+  .studio-projects li strong > svg {
+    display: none !important;
+  }
   .header-shell,
   .hero-actions,
   .hero-bento,
@@ -2867,10 +3080,29 @@ svg {
     background: #eee;
     color: #222;
   }
-  .service-datos .service-copy > p {
+  .service-datos .service-copy > p,
+  .service-datos .service-copy > .service-example,
+  .service-datos .service-copy > .service-outcome,
+  .service-datos .service-tools span {
     color: #333;
+    border-color: #bbb;
   }
   .hawkers-feature {
     break-inside: avoid;
+  }
+}
+/* Por debajo de 440 px el wordmark y el aria-label identifican la marca; así
+   caben el cambio de idioma, LinkedIn y el menú sin partir el nombre. */
+@media (max-width: 440px) {
+  .site-header .brand-name {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-item::details-content,
+  .certificate-details::details-content,
+  .experience-chevron,
+  .studio-projects li a {
+    transition: none;
   }
 }

@@ -6,7 +6,7 @@ La web está configurada con `output: 'export'`, imágenes sin optimizador de se
 
 ## Flujo
 
-`.github/workflows/pages.yml` se ejecuta cuando David sube cambios a `main` o mediante **Run workflow**. Instala dependencias con el lockfile, ejecuta lint, build, TypeScript y las siete pruebas de navegador. Solo después publica el artefacto en el entorno `github-pages`.
+`.github/workflows/pages.yml` se ejecuta cuando David sube cambios a `main` o mediante **Run workflow**. Instala dependencias con el lockfile, ejecuta lint, build, TypeScript y las pruebas de navegador. Solo después publica el artefacto en el entorno `github-pages`.
 
 Las acciones oficiales usadas son checkout v7, setup-node v7, configure-pages v6, upload-pages-artifact v5 y deploy-pages v5; sus versiones se consultaron en los repositorios oficiales.
 

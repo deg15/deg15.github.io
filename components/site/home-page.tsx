@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import {
   ArrowDown,
   ArrowUpRight,
@@ -14,42 +13,44 @@ import { ExperienceList } from '@/components/site/experience-list';
 import { Certifications } from '@/components/site/certifications';
 import { Contact } from '@/components/site/contact';
 import { Motion } from '@/components/site/motion';
-import { BrandLogo, type Brand } from '@/components/site/brand-logo';
+import { CurrentYear } from '@/components/site/current-year';
+import { BrandLogo, brandName } from '@/components/site/brand-logo';
 import { ServiceVisual } from '@/components/site/service-visual';
-import { education, profile, services } from '@/lib/profile';
+import { content, routes, type Locale } from '@/lib/content';
+import { profile, zogicProjects } from '@/lib/profile';
+import { profileJsonLd } from '@/lib/seo';
 
-export const metadata: Metadata = { alternates: { canonical: '/' } };
-const educationBrands: Brand[] = [
-  'universidad-murcia',
-  'wroclaw',
-  'cifp-carlos-iii',
-];
+const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
+const careerBrands = ['civica', 'capgemini', 'sabic', 'ticarum'] as const;
 
-export default function Home() {
+export function HomePage({ locale }: { locale: Locale }) {
+  const t = content[locale];
+  const other = locale === 'es' ? 'en' : 'es';
+  const { hero, capabilities, experience, about, education, studio } = t;
   return (
     <>
       <a className="skip-link" href="#contenido">
-        Saltar al contenido
+        {t.common.skip}
       </a>
-      <Navigation />
+      <Navigation t={t.common} switchHref={routes[other].home} />
       <main id="contenido" tabIndex={-1}>
         <section id="inicio" className="hero wrap" aria-labelledby="hero-title">
           <div className="hero-top">
             <p className="eyebrow">
-              <span className="signal" /> DAVID EGEA GARCÍA / INGENIERO INFORMÁTICO
+              <span className="signal" /> {hero.eyebrow}
             </p>
             <span className="hero-location mono">
-              <MapPin size={13} /> CARTAGENA, ESPAÑA
+              <MapPin size={13} aria-hidden="true" /> {hero.location}
             </span>
           </div>
           <div className="hero-grid">
             <div className="hero-copy">
               <h1 id="hero-title">
-                Software.
+                {hero.title[0]}
                 <br />
-                Datos.
+                {hero.title[1]}
                 <br />
-                <em>Criterio.</em>
+                <em>{hero.title[2]}</em>
                 <Asterisk
                   className="hero-asterisk"
                   strokeWidth={1.2}
@@ -57,21 +58,18 @@ export default function Home() {
                 />
               </h1>
               <p className="hero-description">
-                Soy David Egea García. Conecto ingeniería, datos e inteligencia
-                artificial para convertir problemas complejos en{' '}
-                <strong>soluciones que tienen sentido.</strong>
+                {hero.lead} <strong>{hero.leadStrong}</strong>
               </p>
               <div className="hero-actions">
                 <a
                   className="button-primary"
                   href={profile.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...external}
                 >
-                  Hablemos en LinkedIn <ArrowUpRight size={19} />
+                  {hero.cta} <ArrowUpRight size={19} aria-hidden="true" />
                 </a>
                 <a className="text-link" href="#capacidades">
-                  Explora lo que hago <ArrowDown size={17} />
+                  {hero.explore} <ArrowDown size={17} aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -79,18 +77,24 @@ export default function Home() {
               <div className="portrait-frame">
                 <Image
                   src="/images/david-egea.webp"
-                  alt="Retrato de David Egea García"
-                  width={1080}
-                  height={1080}
+                  alt={hero.portraitAlt}
+                  width={860}
+                  height={860}
                   preload
                   sizes="(max-width: 700px) 90vw, 430px"
                 />
               </div>
               <figcaption>
                 <span>
-                  David Egea García
+                  {profile.name}
                   <small>
-                    Ingeniero informático · CTO & cofundador de Zogic
+                    <span>
+                      {hero.captionStudio}{' '}
+                      <a href={t.studioUrl} {...external}>
+                        Zogic Studio
+                      </a>
+                    </span>{' '}
+                    · <span>{hero.captionHawkers}</span>
                   </small>
                 </span>
                 <span className="portrait-signature" aria-hidden="true">
@@ -105,59 +109,57 @@ export default function Home() {
                 10<span>+</span>
               </span>
               <span>
-                Años conectando
+                {hero.years[0]}
                 <br />
-                tecnología y negocio.
+                {hero.years[1]}
               </span>
-              <ArrowUpRight size={19} />
+              <ArrowUpRight size={19} aria-hidden="true" />
             </a>
             <a className="bento-current" href="#hawkers">
               <div>
                 <span className="eyebrow">
-                  <span className="signal" /> ACTUALMENTE EN
+                  <span className="signal" /> {hero.currentEyebrow}
                 </span>
                 <BrandLogo brand="hawkers" />
               </div>
               <span>
-                Data Engineer{' '}
-                <br />& Analyst
+                {hero.currentRole[0]} <br />
+                {hero.currentRole[1]}
               </span>
-              <ArrowUpRight size={20} />
+              <ArrowUpRight size={20} aria-hidden="true" />
             </a>
             <a className="bento-studio" href="#zogic">
-              <span className="eyebrow">TAMBIÉN CONSTRUYENDO</span>
+              <span className="eyebrow">{hero.studioEyebrow}</span>
               <span className="bento-studio-title">
                 <BrandLogo brand="zogic" decorative /> Zogic Studio{' '}
-                <ArrowUpRight size={19} />
+                <ArrowUpRight size={19} aria-hidden="true" />
               </span>
-              <span>Un estudio propio. Nuevas posibilidades.</span>
+              <span>{hero.studioLine}</span>
             </a>
           </div>
           <div className="career-strip">
             <span className="mono">
-              PARTE DE{' '}
+              {hero.careerStrip[0]}
               <br />
-              MI RECORRIDO
+              {hero.careerStrip[1]}
             </span>
             <div className="career-brands">
-              {(['civica', 'capgemini', 'sabic', 'ticarum'] as const).map(
-                (brand) => (
-                  <a
-                    key={brand}
-                    href="#experiencia"
-                    aria-label={'Ver mi experiencia en ' + brand}
-                  >
-                    <BrandLogo brand={brand} decorative />
-                  </a>
-                ),
-              )}
+              {careerBrands.map((brand) => (
+                <a
+                  key={brand}
+                  href="#experiencia"
+                  aria-label={hero.careerAria + ' ' + brandName(brand)}
+                >
+                  <BrandLogo brand={brand} decorative />
+                </a>
+              ))}
             </div>
             <a
               className="round-link"
               href="#experiencia"
-              aria-label="Explorar mi experiencia"
+              aria-label={hero.exploreExperience}
             >
-              <ArrowDown size={20} />
+              <ArrowDown size={20} aria-hidden="true" />
             </a>
           </div>
         </section>
@@ -170,21 +172,19 @@ export default function Home() {
           <div className="section-heading" data-reveal>
             <div>
               <p className="eyebrow">
-                <span className="section-number">01</span> LO QUE PUEDO APORTAR
+                <span className="section-number">01</span>{' '}
+                {capabilities.eyebrow}
               </p>
               <h2 id="capabilities-title">
-                Distintas herramientas.
+                {capabilities.title[0]}
                 <br />
-                <em>Una misma intención.</em>
+                <em>{capabilities.title[1]}</em>
               </h2>
             </div>
-            <p>
-              Entender lo que necesitas. Conectar las piezas. Construir algo que
-              te sirva.
-            </p>
+            <p>{capabilities.intro}</p>
           </div>
           <div className="services-grid">
-            {services.map((service) => (
+            {capabilities.services.map((service, i) => (
               <article
                 className={'service-card service-' + service.id}
                 key={service.id}
@@ -192,37 +192,30 @@ export default function Home() {
               >
                 <div className="service-card-top">
                   <span className="mono">
-                    {service.number} /{' '}
-                    {service.id === 'datos'
-                      ? 'DATA & ANALYTICS'
-                      : service.id === 'producto'
-                        ? 'SOFTWARE & PRODUCTO'
-                        : 'INTELIGENCIA ARTIFICIAL'}
+                    0{i + 1} / {service.category}
                   </span>
-                  <ArrowUpRight size={22} />
                 </div>
-                <ServiceVisual kind={service.id} />
+                <ServiceVisual kind={service.id} t={capabilities} />
                 <div className="service-copy">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
+                  <p className="service-example">
+                    <span>{capabilities.exampleLabel}:</span> {service.example}
+                  </p>
                   <div className="service-tools">
                     {service.tools.map((tool) => (
                       <span key={tool}>{tool}</span>
                     ))}
                   </div>
+                  <p className="service-outcome mono">{service.outcome}</p>
                 </div>
               </article>
             ))}
           </div>
           <div className="capabilities-bottom">
-            <span>Del primer «¿y si…?» a algo que funciona.</span>
-            <a
-              className="text-link"
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hablemos de tu reto <ArrowUpRight size={17} />
+            <span>{capabilities.bottom}</span>
+            <a className="text-link" href={profile.linkedin} {...external}>
+              {capabilities.cta} <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </div>
         </section>
@@ -236,80 +229,66 @@ export default function Home() {
             <div className="section-heading" data-reveal>
               <div>
                 <p className="eyebrow">
-                  <span className="section-number">02</span> TRAYECTORIA
-                  PROFESIONAL
+                  <span className="section-number">02</span>{' '}
+                  {experience.eyebrow[0]} {experience.eyebrow[1]}
                 </p>
                 <h2 id="experience-title">
-                  El criterio se construye
+                  {experience.title[0]}
                   <br />
-                  <em>con experiencia.</em>
+                  <em>{experience.title[1]}</em>
                 </h2>
               </div>
-              <p>
-                Del desarrollo de aplicaciones al liderazgo de proyectos. De los
-                datos a las decisiones de negocio.
-              </p>
+              <p>{experience.intro}</p>
             </div>
             <article id="hawkers" className="hawkers-feature" data-reveal>
               <div className="hawkers-feature-top">
                 <span className="eyebrow">
-                  <span className="signal" /> MI ETAPA ACTUAL
+                  <span className="signal" /> {experience.current.eyebrow}
                 </span>
-                <span className="mono">DIC. 2017 — ACTUALIDAD</span>
+                <span className="mono">{experience.current.period}</span>
               </div>
               <div className="hawkers-feature-grid">
                 <div className="hawkers-identity">
                   <h3>
                     <BrandLogo brand="hawkers" />
                   </h3>
-                  <p>Data Engineer & Analyst</p>
-                  <span className="mono">ELCHE, ESPAÑA</span>
+                  <p>{experience.current.role}</p>
+                  <span className="mono">{experience.current.location}</span>
                   <div className="hawkers-art" aria-hidden="true">
-                    <span>SQL</span>
-                    <span>Python</span>
-                    <span>Snowflake</span>
-                    <span>MicroStrategy</span>
+                    {experience.current.art.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
                   </div>
                 </div>
                 <div className="hawkers-story">
                   <p className="hawkers-lead">
-                    Una mirada cada vez
+                    {experience.current.lead[0]}
                     <br />
-                    más completa.
+                    {experience.current.lead[1]}
                   </p>
-                  <p>
-                    Desde 2017 formo parte del equipo de Hawkers. Mi trabajo en
-                    datos conecta la parte técnica con lo que el negocio
-                    necesita entender y decidir.
-                  </p>
-                  <p>
-                    Una trayectoria que reúne ingeniería de datos, analítica e
-                    inteligencia artificial, con una base sólida en SQL, Python,
-                    Snowflake y MicroStrategy.
-                  </p>
+                  {experience.current.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
                   <div className="tags">
-                    <span>Data Engineering</span>
-                    <span>Business Intelligence</span>
-                    <span>IA aplicada</span>
+                    {experience.current.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
                   </div>
                 </div>
               </div>
               <div className="hawkers-bottom">
-                <span className="mono">DATOS → INFORMACIÓN → DECISIONES</span>
-                <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Mi experiencia en LinkedIn <ArrowUpRight size={16} />
+                <span className="mono">{experience.current.flow}</span>
+                <a href={profile.linkedin} {...external}>
+                  {experience.current.linkedin}{' '}
+                  <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
-            <ExperienceList />
+            <ExperienceList jobs={experience.jobs} />
             <div className="experience-note">
-              <span className="mono">LA HISTORIA CONTINÚA</span>
+              <span className="mono">{experience.noteLabel}</span>
               <a href="#zogic">
-                También estoy construyendo algo propio <ArrowDown size={16} />
+                {experience.note} <ArrowDown size={16} aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -323,52 +302,36 @@ export default function Home() {
           <div className="about-grid">
             <div data-reveal>
               <p className="eyebrow">
-                <span className="section-number">03</span> LA PERSONA DETRÁS
+                <span className="section-number">03</span> {about.eyebrow}
               </p>
               <h2 id="about-title">
-                Entender primero.
+                {about.title[0]}
                 <br />
-                Construir después.
+                {about.title[1]}
                 <br />
-                <em>Cuidar siempre.</em>
+                <em>{about.title[2]}</em>
               </h2>
               <div className="about-location">
-                <MapPin size={17} />
-                <span>Cartagena, junto al Mediterráneo.</span>
+                <MapPin size={17} aria-hidden="true" />
+                <span>{about.location}</span>
               </div>
               <div className="about-symbol" aria-hidden="true">
                 <Asterisk strokeWidth={0.8} />
                 <span className="mono">
-                  SIEMPRE
+                  {about.symbol[0]}
                   <br />
-                  APRENDIENDO.
+                  {about.symbol[1]}
                 </span>
               </div>
             </div>
             <div className="about-copy" data-reveal>
-              <p className="about-lead">
-                Soy ingeniero informático. Y, sobre todo, alguien a quien le
-                gusta entender cómo funcionan las cosas.
-              </p>
-              <p>
-                Mi recorrido empezó en el desarrollo de aplicaciones, pasó por
-                la consultoría y me llevó a especializarme en datos. En
-                Capgemini aprendí a abordar proyectos de principio a fin. En
-                Cívica sumé liderazgo y contacto directo con el cliente. En
-                Hawkers he profundizado en la conexión entre tecnología y
-                negocio.
-              </p>
-              <p>
-                Hoy esa experiencia convive con las posibilidades de la
-                inteligencia artificial y las ganas de construir productos
-                propios. Sigo aprendiendo, probando y haciéndome preguntas.
-              </p>
+              <p className="about-lead">{about.lead}</p>
+              {about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
               <div className="principle">
-                <Fingerprint size={30} strokeWidth={1.3} />
-                <p>
-                  Que la solución esté bien pensada, se pueda mantener y le
-                  sirva de verdad a alguien.
-                </p>
+                <Fingerprint size={30} strokeWidth={1.3} aria-hidden="true" />
+                <p>{about.principle}</p>
               </div>
             </div>
           </div>
@@ -382,26 +345,22 @@ export default function Home() {
           <div className="section-heading" data-reveal>
             <div>
               <p className="eyebrow">
-                <span className="section-number">04</span> FORMACIÓN &
-                CERTIFICACIONES
+                <span className="section-number">04</span> {education.eyebrow}
               </p>
               <h2 id="education-title">
-                Una base sólida.
+                {education.title[0]}
                 <br />
-                <em>Siempre en evolución.</em>
+                <em>{education.title[1]}</em>
               </h2>
             </div>
-            <p>
-              La formación pone los cimientos. La curiosidad se encarga del
-              resto.
-            </p>
+            <p>{education.intro}</p>
           </div>
           <div className="education-grid">
             <div className="academic-list">
-              {education.map((item, i) => (
+              {education.items.map((item) => (
                 <article className="academic-item" key={item.school}>
                   <div className="academic-logo">
-                    <BrandLogo brand={educationBrands[i]} decorative />
+                    <BrandLogo brand={item.brand} decorative />
                   </div>
                   <div>
                     <span className="mono">{item.dates}</span>
@@ -412,7 +371,7 @@ export default function Home() {
                 </article>
               ))}
             </div>
-            <Certifications />
+            <Certifications t={education.certifications} locale={locale} />
           </div>
         </section>
 
@@ -424,36 +383,28 @@ export default function Home() {
           <div className="studio-panel" data-reveal>
             <div className="studio-intro">
               <p className="eyebrow">
-                <span className="section-number">05</span> UN PROYECTO PROPIO
+                <span className="section-number">05</span> {studio.eyebrow}
               </p>
               <h2 id="studio-title">
-                De las ganas de crear
+                {studio.title[0]}
                 <br />
-                <em>a crear algo nuestro.</em>
+                <em>{studio.title[1]}</em>
               </h2>
-              <p>
-                Soy CTO y cofundador de Zogic, el estudio que estoy impulsando
-                junto a Jesús Javier Pedreño. Un espacio para llevar esa
-                experiencia a nuevos productos digitales y automatizaciones.
-              </p>
-              <a
-                className="button-primary"
-                href={profile.studio}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Conocer Zogic Studio <ArrowUpRight size={19} />
+              {studio.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <a className="button-primary" href={t.studioUrl} {...external}>
+                {studio.cta} <ArrowUpRight size={19} aria-hidden="true" />
               </a>
             </div>
             <a
               className="studio-mark"
-              href={profile.studio}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar Zogic Studio"
+              href={t.studioUrl}
+              {...external}
+              aria-label={studio.markAria}
             >
               <span className="studio-mark-top mono">
-                ESTUDIO DIGITAL INDEPENDIENTE <ArrowUpRight size={20} />
+                {studio.markTop} <ArrowUpRight size={20} aria-hidden="true" />
               </span>
               <div className="studio-brand-lockup">
                 <BrandLogo brand="zogic" decorative />
@@ -463,16 +414,45 @@ export default function Home() {
               </div>
               <span className="studio-mark-bottom">
                 <span>
-                  Dos personas.
+                  {studio.markBottom[0]}
                   <br />
-                  Ganas de construir.
+                  {studio.markBottom[1]}
                 </span>
-                <ArrowRight size={28} />
+                <ArrowRight size={28} aria-hidden="true" />
               </span>
             </a>
+            <div className="studio-projects">
+              <div className="studio-projects-top">
+                <h3 className="eyebrow">{studio.projectsEyebrow}</h3>
+                <a
+                  className="text-link"
+                  href={t.studioProjectsUrl}
+                  {...external}
+                >
+                  {studio.projectsAll}{' '}
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+              <ul>
+                {zogicProjects.map((project) => (
+                  <li key={project.slug}>
+                    <a href={t.studioProjectUrl(project.slug)} {...external}>
+                      <span className="mono">
+                        {studio.projects[project.slug].type}
+                      </span>
+                      <strong>
+                        {project.name}
+                        <ArrowUpRight size={16} aria-hidden="true" />
+                      </strong>
+                      <span>{studio.projects[project.slug].text}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
-        <Contact />
+        <Contact t={t.contact} />
       </main>
       <footer className="site-footer wrap">
         <div className="footer-top">
@@ -480,28 +460,47 @@ export default function Home() {
             <span className="wordmark" aria-hidden="true">
               deg<span>.</span>
             </span>
-            <span className="brand-name">David Egea García</span>
+            <span className="brand-name">{profile.name}</span>
           </a>
           <a className="back-to-top" href="#inicio">
-            Volver arriba <ArrowUpRight size={18} />
+            {t.footer.top} <ArrowUpRight size={18} aria-hidden="true" />
           </a>
         </div>
-        <div className="footer-bottom">
-          <span>© 2026 David Egea García</span>
-          <span>Software, datos y curiosidad.</span>
-          <div>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn <ArrowUpRight size={13} />
+        <nav
+          id="secciones"
+          className="footer-nav"
+          aria-label={t.common.footerNav}
+        >
+          {t.common.nav.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
             </a>
-            <Link href="/privacidad/">Privacidad</Link>
+          ))}
+        </nav>
+        <div className="footer-bottom">
+          <span>
+            © <CurrentYear buildYear={new Date().getFullYear()} />{' '}
+            {profile.name}
+          </span>
+          <span>{t.footer.tagline}</span>
+          <div>
+            <a href={profile.linkedin} {...external}>
+              LinkedIn <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+            <Link href={routes[locale].privacy}>{t.footer.privacy}</Link>
           </div>
         </div>
       </footer>
       <Motion />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profileJsonLd(locale)).replace(
+            /</g,
+            '\\u003c',
+          ),
+        }}
+      />
     </>
   );
 }

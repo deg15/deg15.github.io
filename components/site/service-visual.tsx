@@ -1,6 +1,13 @@
 import { ArrowRight, Braces, Database, Network, Sparkles } from 'lucide-react';
+import type { Content } from '@/lib/content';
 
-export function ServiceVisual({ kind }: { kind: string }) {
+export function ServiceVisual({
+  kind,
+  t,
+}: {
+  kind: string;
+  t: Content['capabilities'];
+}) {
   if (kind === 'datos')
     return (
       <div className="service-visual data-visual" aria-hidden="true">
@@ -31,7 +38,7 @@ export function ServiceVisual({ kind }: { kind: string }) {
               <i key={i} style={{ height: height + '%' }} />
             ))}
           </div>
-          <span>Una visión común</span>
+          <span>{t.dataOutput}</span>
         </div>
       </div>
     );
@@ -43,7 +50,9 @@ export function ServiceVisual({ kind }: { kind: string }) {
             <span />
             <span />
             <span />
-            <i>producto / en construcción</i>
+            <i>
+              {t.productUrl} · <b>{t.productStatus}</b>
+            </i>
           </div>
           <div className="window-body">
             <div className="window-sidebar">
@@ -73,10 +82,10 @@ export function ServiceVisual({ kind }: { kind: string }) {
       <div className="ai-core">
         <Sparkles size={30} strokeWidth={1.3} />
       </div>
-      <span className="ai-node node-input">Contexto</span>
-      <span className="ai-node node-output">Acción</span>
+      <span className="ai-node node-input">{t.aiInput}</span>
+      <span className="ai-node node-output">{t.aiOutput}</span>
       <span className="ai-dot" />
-      <span className="ai-caption mono">CONECTAR → AUTOMATIZAR</span>
+      <span className="ai-caption mono">{t.aiCaption}</span>
     </div>
   );
 }

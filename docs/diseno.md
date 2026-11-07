@@ -11,6 +11,8 @@ Referencias consultadas:
 
 El diseño es propio. Los diagramas de servicios son ilustraciones conceptuales, no capturas de proyectos ni resultados medidos. La experiencia de Hawkers muestra las tecnologías verificadas. Los únicos recuentos destacados son los años de trayectoria y las 11 certificaciones del contenido recuperado.
 
-La navegación indica la sección activa; los empleos se pueden desplegar simultáneamente. Las certificaciones conservan emisor y fecha de expedición, sin afirmar vigencia actual. Los enlaces de contacto abren LinkedIn.
+La navegación indica la sección activa; los empleos y las certificaciones usan `<details>` nativo: el contenido está en el HTML, se despliega sin JavaScript y se abre entero al imprimir. Las certificaciones conservan emisor y fecha de expedición, sin afirmar vigencia actual. Los enlaces de contacto abren LinkedIn.
 
-La página conserva el contenido principal sin JavaScript. Las animaciones de entrada y hover respetan movimiento reducido. Los logos y las fuentes se sirven localmente; la foto principal pasa de 1,7 MB a unos 42 KB en WebP.
+La página conserva el contenido principal sin JavaScript. En móvil, antes de hidratar o sin JavaScript, el botón del menú enlaza a la navegación de secciones del pie; con JavaScript abre el diálogo. Las animaciones de entrada y hover respetan movimiento reducido. Los logos y las fuentes (`app/fonts/`, OFL, latín y latín extendido) se sirven localmente y el build no depende de Google Fonts. La foto principal es un WebP de 860 px (unos 26 KB); el original de 1,7 MB vive en `scripts/assets/` solo para generar la imagen social y no se publica.
+
+En inglés, «Criterio.» se traduce como «Sense.»: «Judgement.» no cabía en el titular móvil y «Sense» enlaza con «solutions that make sense».

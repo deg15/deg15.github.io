@@ -1,7 +1,8 @@
 import { ArrowUpRight } from 'lucide-react';
 import { profile } from '@/lib/profile';
+import type { Content } from '@/lib/content';
 
-export function Contact() {
+export function Contact({ t }: { t: Content['contact'] }) {
   return (
     <section
       id="contacto"
@@ -11,21 +12,18 @@ export function Contact() {
       <div className="wrap contact-panel">
         <div className="contact-top">
           <p className="eyebrow">
-            <span className="signal" /> LA SIGUIENTE CONVERSACIÓN
+            <span className="signal" /> {t.eyebrow}
           </p>
-          <span className="mono">CARTAGENA · CONECTADO AL MUNDO</span>
+          <span className="mono">{t.place}</span>
         </div>
         <div className="contact-grid">
           <h2 id="contact-title">
-            Las buenas ideas
+            {t.title[0]}
             <br />
-            empiezan <em>hablando.</em>
+            {t.title[1]} <em>{t.title[2]}</em>
           </h2>
           <div className="contact-copy">
-            <p>
-              ¿Tienes un proyecto, un reto con tus datos o una idea a la que dar
-              forma? Cuéntamelo en LinkedIn.
-            </p>
+            <p>{t.text}</p>
             <a
               className="button-primary linkedin-cta"
               href={profile.linkedin}
@@ -35,7 +33,7 @@ export function Contact() {
               <span className="linkedin-mark" aria-hidden="true">
                 in
               </span>{' '}
-              Hablemos en LinkedIn <ArrowUpRight size={20} />
+              {t.cta} <ArrowUpRight size={20} aria-hidden="true" />
             </a>
           </div>
         </div>

@@ -1,37 +1,35 @@
-'use client';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from '@/components/ui/accordion';
-import { experience } from '@/lib/profile';
-import { BrandLogo, type Brand } from '@/components/site/brand-logo';
-const jobBrands: Brand[] = [
-  'civica',
-  'capgemini',
-  'bitec',
-  'ticarum',
-  'sabic',
-  'vilvite',
-];
-export function ExperienceList() {
+import { ChevronDown } from 'lucide-react';
+import type { Content } from '@/lib/content';
+import { BrandLogo } from '@/components/site/brand-logo';
+
+// <details> nativo: el contenido está en el HTML (buscadores, LLMs, lectores
+// sin JavaScript) y se despliega sin hidratar React.
+export function ExperienceList({
+  jobs,
+}: {
+  jobs: Content['experience']['jobs'];
+}) {
   return (
-    <Accordion className="experience-list" multiple>
-      {experience.map((job, i) => (
-        <AccordionItem value={job.company} key={job.company}>
-          <AccordionTrigger className="experience-trigger">
+    <div className="experience-list">
+      {jobs.map((job) => (
+        <details className="experience-item" key={job.company}>
+          <summary className="experience-trigger">
             <span className="experience-date mono">{job.period}</span>
             <span className="experience-logo">
-              <BrandLogo brand={jobBrands[i]} decorative />
+              <BrandLogo brand={job.brand} decorative />
             </span>
             <span className="experience-company">
               {job.company}
               <span>{job.role}</span>
             </span>
             <span className="experience-location mono">{job.location}</span>
-          </AccordionTrigger>
-          <AccordionContent className="experience-detail">
+            <ChevronDown
+              className="experience-chevron"
+              size={16}
+              aria-hidden="true"
+            />
+          </summary>
+          <div className="experience-detail">
             <p className="job-intro">{job.detail}</p>
             {job.roles.map((role) => (
               <div className="job-role" key={role.title}>
@@ -45,9 +43,9 @@ export function ExperienceList() {
                 <span key={t}>{t}</span>
               ))}
             </div>
-          </AccordionContent>
-        </AccordionItem>
+          </div>
+        </details>
       ))}
-    </Accordion>
+    </div>
   );
 }
