@@ -262,9 +262,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 </div>
                 <div className="hawkers-story">
                   <p className="hawkers-lead">
-                    {experience.current.lead[0]}
-                    <br />
-                    {experience.current.lead[1]}
+                    {experience.current.lead.join(' ')}
                   </p>
                   {experience.current.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>

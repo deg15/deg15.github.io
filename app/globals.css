@@ -724,18 +724,26 @@ svg {
   border-radius: 5px;
 }
 .service-datos {
-  grid-row: span 2;
+  grid-column: 1 / -1;
   background: #2b3029;
   color: white;
   border-color: #2b3029;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px 56px;
+  align-items: center;
+}
+.service-datos .service-card-top {
+  grid-column: 1 / -1;
+}
+.service-datos .data-visual {
+  margin: 0;
 }
 .service-datos .service-card-top {
   color: #d3dec6;
 }
 .service-datos .service-copy {
-  margin-top: auto;
+  padding-block: 4px 6px;
 }
 .service-datos .service-copy > p {
   color: #ced3c7;
@@ -2532,6 +2540,8 @@ svg {
   }
   .service-datos {
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
     grid-column: auto;
     gap: 0;
   }

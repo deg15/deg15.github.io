@@ -183,7 +183,7 @@ const es = {
       lead: ['De los datos', 'a la IA aplicada.'],
       paragraphs: [
         'Desde 2017 formo parte del equipo de Hawkers. Empecé en ingeniería de datos y business intelligence, y hoy mi foco es la IA aplicada: sistemas que automatizan trabajo real para distintos departamentos.',
-        'Sobre todo para QA: monitorización diaria del rendimiento de la web, validación automática de las promociones antes de publicarlas y seguimiento de cómo aparece la marca en los asistentes de IA. También para otros equipos, como Compras, con la conciliación automática de facturas de proveedores.',
+        'IA aplicada a la web: monitorización diaria del rendimiento, validación automática de las promociones antes de publicarlas y seguimiento de cómo aparece la marca en los asistentes de IA. Y herramientas específicas para distintos departamentos.',
         'Un principio guía ese trabajo: la IA extrae y propone; el código determinista decide.',
       ],
       tags: [
@@ -310,7 +310,7 @@ const es = {
   about: {
     eyebrow: 'LA PERSONA DETRÁS',
     title: ['Entender primero.', 'Construir después.', 'Cuidar siempre.'],
-    location: 'Cartagena, junto al Mediterráneo.',
+    location: 'Cartagena, España.',
     symbol: ['SIEMPRE', 'APRENDIENDO.'],
     lead: 'Soy ingeniero informático. Y, sobre todo, alguien a quien le gusta entender cómo funcionan las cosas.',
     paragraphs: [
@@ -542,7 +542,7 @@ const en: Content = {
       lead: ['From data', 'to applied AI.'],
       paragraphs: [
         'I have been part of the Hawkers team since 2017. I started in data engineering and business intelligence; today my focus is applied AI: systems that automate real work for different departments.',
-        'Mostly for QA: daily monitoring of web performance, automated validation of promotions before they go live and tracking how the brand appears in AI assistants. Also for other teams, such as Purchasing, with automated reconciliation of supplier invoices.',
+        'Applied AI for the website: daily performance monitoring, automated validation of promotions before they go live and tracking how the brand appears in AI assistants. And purpose-built tools for different departments.',
         'One principle guides that work: AI extracts and suggests; deterministic code decides.',
       ],
       tags: [
@@ -669,7 +669,7 @@ const en: Content = {
   about: {
     eyebrow: 'THE PERSON BEHIND IT',
     title: ['Understand first.', 'Build next.', 'Care always.'],
-    location: 'Cartagena, by the Mediterranean.',
+    location: 'Cartagena, Spain.',
     symbol: ['ALWAYS', 'LEARNING.'],
     lead: 'I’m a computer engineer. And, above all, someone who likes to understand how things work.',
     paragraphs: [
