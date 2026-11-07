@@ -75,7 +75,11 @@ export function profileJsonLd(locale: Locale) {
           name: 'Zogic Studio',
           url: profile.studio,
         },
-        { '@type': 'Organization', name: 'Hawkers Group' },
+        {
+          '@type': 'Organization',
+          name: 'Hawkers Group',
+          url: profile.hawkers,
+        },
       ],
       sameAs: [profile.linkedin],
       alumniOf: [

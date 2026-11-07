@@ -6,6 +6,7 @@ export const profile = {
   certificationsUrl:
     'https://www.linkedin.com/in/davidegeagarcia/details/certifications/',
   studio: 'https://zogicstudio.com/',
+  hawkers: 'https://www.hawkersco.com/',
   studioOrganizationId: 'https://zogicstudio.com/#organization',
 };
 

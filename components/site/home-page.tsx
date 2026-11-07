@@ -94,7 +94,13 @@ export function HomePage({ locale }: { locale: Locale }) {
                         Zogic Studio
                       </a>
                     </span>{' '}
-                    · <span>{hero.captionHawkers}</span>
+                    ·{' '}
+                    <span>
+                      {hero.captionHawkers}{' '}
+                      <a href={profile.hawkers} {...external}>
+                        Hawkers
+                      </a>
+                    </span>
                   </small>
                 </span>
                 <span className="portrait-signature" aria-hidden="true">

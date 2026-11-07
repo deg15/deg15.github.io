@@ -272,6 +272,7 @@ test('exportación estática: SEO público, imagen social, privacidad y 404', as
   expect(person.worksFor[1]).toEqual({
     '@type': 'Organization',
     name: 'Hawkers Group',
+    url: 'https://www.hawkersco.com/',
   });
   for (const [lang, href] of [
     ['es', 'https://deg15.github.io/'],
@@ -299,6 +300,11 @@ test('exportación estática: SEO público, imagen social, privacidad y 404', as
       '.portrait-block figcaption a[href="https://zogicstudio.com/"]',
     ),
   ).toHaveText('Zogic Studio');
+  await expect(
+    page.locator(
+      '.portrait-block figcaption a[href="https://www.hawkersco.com/"]',
+    ),
+  ).toHaveText('Hawkers');
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     'content',
     /CTO y cofundador de Zogic Studio e IA & Data Engineer en Hawkers/,
